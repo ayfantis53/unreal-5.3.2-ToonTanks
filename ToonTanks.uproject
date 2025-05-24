@@ -1,0 +1,34 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "CC42708C-B847-4D42-9234-5842F023309A",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "ToonTanks",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"GameplayCameras",
+				"UMG",
+				"Slate",
+				"SlateCore"
+			]
+		},
+		{
+			"Name": "Tests",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"FunctionalTesting"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "FunctionalTestingEditor",
+			"Enabled": true
+		}
+	]
+}
