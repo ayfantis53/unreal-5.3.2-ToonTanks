@@ -1,7 +1,7 @@
 // *************************************************************************** //
 // ******************** Unreal Engine version 5.3.2 ************************** //
 // Toon Tanks **************************************************************** //
-//             																   //
+// ----------  																   //
 // Developed by Andrew Yfantis. 											   //
 // https://github.com/ayfantis53 											   //
 //             																   //
@@ -75,7 +75,7 @@ private:
 	/// @brief The max range at which the turrets will begin attacking the player.
 	float fire_range_{ 700.f };
 
-	/// @brief Unique handle that can be used to distinguish timers that have identical delegates.
+	/// @brief Unique handle used to set fire timer of tower.
 	FTimerHandle fire_rate_timer_handle_;
 
 	/* ----------------------- TESTING ---------------------- */

@@ -1,7 +1,7 @@
 // *************************************************************************** //
 // ******************** Unreal Engine version 5.3.2 ************************** //
 // Toon Tanks **************************************************************** //
-//             																   //
+// ----------  																   //
 // Developed by Andrew Yfantis. 											   //
 // https://github.com/ayfantis53 											   //
 //             																   //
@@ -30,6 +30,6 @@ public:
     /// @brief Calls toon tanks end_game_widget set game over text function.
     static auto set_game_over_text(TSharedPtr<class STT_End_game_widget> widget_ref, bool b_win) -> void
     {
-        return widget_ref->set_game_over_text(b_win);
+        widget_ref->set_game_over_text(b_win);
     }
 };
