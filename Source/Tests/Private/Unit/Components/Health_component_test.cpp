@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "Unit/Components/Health_component_test.h"
 
@@ -24,7 +24,7 @@ auto health_spawn_test::RunTest(const FString& Parameters) -> bool
 
     //// TEST ////
 
-    // Test all components were made and projectile was bound to delegate.
+    // Test health component was made.
     TestNotNull("Health Component created", Health_component_test::get_health_component(tank));
 
     //// FINISH ////
@@ -51,7 +51,7 @@ auto health_begin_play_test::RunTest(const FString& Parameters) -> bool
     // Call BeginPlay which binds on damage to pawn.
     tank->DispatchBeginPlay();
 
-    // Test all components were made and projectile was bound to delegate.
+    // Test all components were made and tank was bound to delegate.
     TestTrue("Health Component bound tank to delegate", tank->OnTakeAnyDamage.IsBound());
 
     //// FINISH ////
@@ -82,7 +82,7 @@ auto health_comp_kill_tank_test::RunTest(const FString& Parameters) -> bool
     auto health = Health_component_test::get_health_component(tank);
     Health_component_test::call_take_damage(health, tank, 100.f, GetDefault<UDamageType>(), nullptr, nullptr);
 
-    // Test all components were made and projectile was bound to delegate.
+    // Test health was affected after tank took damage.
     TestEqual("Tank health was subtracted", Health_component_test::get_health_value(health), 0.f);
 
     //// FINISH ////

@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 #pragma once
 
 #include "TT_Game_mode.h"
@@ -18,7 +18,7 @@
 
 
 /**
- *	Slate widget that is design and function of end game text 
+ *	Slate widget that is design and function of end game text
  */
 class TOONTANKS_API STT_End_game_widget : public SCompoundWidget
 {
@@ -32,7 +32,7 @@ public:
 	auto Construct(const FArguments& in_args) -> void;
 
 	/// @brief sets text for game over from gamemode.
-	/// @param b_win tells if player won or not to display correct text .
+	/// @param b_win tells if player won or not to display correct text.
 	auto set_game_over_text(bool b_win) -> void;
 
 private:

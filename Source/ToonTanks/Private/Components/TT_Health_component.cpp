@@ -35,7 +35,7 @@ auto UTT_Health_component::BeginPlay() -> void
 	toon_tanks_game_mode_ref_ = Cast<ATT_Game_mode>(UGameplayStatics::GetGameMode(this));
 }
 
-auto UTT_Health_component::TickComponent(float      				  delta_time, 
+auto UTT_Health_component::TickComponent(float						  delta_time, 
 										 ELevelTick 				  tick_type, 
 										 FActorComponentTickFunction* this_tick_function) -> void
 {
@@ -43,10 +43,10 @@ auto UTT_Health_component::TickComponent(float      				  delta_time,
 }
 
 auto UTT_Health_component::damage_taken(AActor* 		   damaged_actor, 
-									    float   		   damage, 
+										float			   damage, 
 										const UDamageType* damage_type, 
 										class AController* instigator, 
-										AActor* 		   damage_causer) -> void
+										AActor*			   damage_causer) -> void
 {
 	// Health cannot be less than 0.
 	if (damage <= 0.f)

@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "Pawns/TT_Projectile.h"
 #include "FX/TT_Camera_shake.h"
@@ -29,7 +29,7 @@ ATT_Projectile::ATT_Projectile()
 	SetRootComponent(projectile_mesh_);
 
 	// set path for Components.
-	static  ConstructorHelpers::FObjectFinder<UStaticMesh>projectile_mesh_path(*projectile_mesh_path_);
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>projectile_mesh_path(*projectile_mesh_path_);
 	if (projectile_mesh_path.Succeeded())
 	{
 		projectile_mesh_->SetStaticMesh(projectile_mesh_path.Object);
@@ -45,7 +45,7 @@ ATT_Projectile::ATT_Projectile()
 	trail_particles_component_->SetupAttachment(RootComponent);
 
 	// set path for death_particles.
-	static  ConstructorHelpers::FObjectFinder<UParticleSystem>trail_particles_path(*trail_particles_path_);
+	static ConstructorHelpers::FObjectFinder<UParticleSystem>trail_particles_path(*trail_particles_path_);
 	if (trail_particles_path.Succeeded())
 	{
 		trail_particles_component_->SetTemplate(trail_particles_path.Object);
@@ -78,19 +78,19 @@ auto ATT_Projectile::Tick(float delta_time) -> void
 auto ATT_Projectile::set_up_projectile() -> void
 {
 	// Set Fire Sound.
-	static  ConstructorHelpers::FObjectFinder<USoundBase>launch_sound_path(*launch_sound_path_);
+	static ConstructorHelpers::FObjectFinder<USoundBase>launch_sound_path(*launch_sound_path_);
 	if (launch_sound_path.Succeeded())
 	{
 		launch_sound_ = launch_sound_path.Object;
 	}
 	// Set hit particles.
-	static  ConstructorHelpers::FObjectFinder<UParticleSystem>hit_particles_path(*hit_particles_path_);
+	static ConstructorHelpers::FObjectFinder<UParticleSystem>hit_particles_path(*hit_particles_path_);
 	if (hit_particles_path.Succeeded())
 	{
 		hit_particles_ = hit_particles_path.Object;
 	}
 	// Set Hit Sound.
-	static  ConstructorHelpers::FObjectFinder<USoundBase>hit_sound_path(*launch_sound_path_);
+	static ConstructorHelpers::FObjectFinder<USoundBase>hit_sound_path(*launch_sound_path_);
 	if (hit_sound_path.Succeeded())
 	{
 		hit_sound_ = hit_sound_path.Object;

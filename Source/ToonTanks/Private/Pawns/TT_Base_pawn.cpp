@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "Pawns/TT_Base_pawn.h"
 #include "Pawns/TT_Projectile.h"
@@ -52,14 +52,14 @@ ATT_Base_pawn::ATT_Base_pawn()
 auto ATT_Base_pawn::set_up_base_pawn() -> void
 {
 	// Set Death Particles.
-	static  ConstructorHelpers::FObjectFinder<UParticleSystem>death_particle_path(*death_particle_path_);
+	static ConstructorHelpers::FObjectFinder<UParticleSystem>death_particle_path(*death_particle_path_);
 	if (death_particle_path.Succeeded())
 	{
 		death_particles_ = death_particle_path.Object;
 	}
 
 	// Set Death Sound.
-	static  ConstructorHelpers::FObjectFinder<USoundBase>death_sound_path(*death_sound_path_);
+	static ConstructorHelpers::FObjectFinder<USoundBase>death_sound_path(*death_sound_path_);
 	if (death_sound_path.Succeeded())
 	{
 		death_sound_ = death_sound_path.Object;

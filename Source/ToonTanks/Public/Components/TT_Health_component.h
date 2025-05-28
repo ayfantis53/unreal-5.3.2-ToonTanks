@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 #pragma once
 
 #include "CoreMinimal.h"
@@ -32,8 +32,8 @@ public:
 	/// @param delta_time         For time-based calculations and consistent behavior regardless of frame rate.
 	/// @param tick_type          An enum of type ELevelTick that specifies the type of tick being executed. (LEVELTICK_Normal, LEVELTICK_TimeOnly, or LEVELTICK_PauseTick).
 	/// @param this_tick_function A pointer to struct that provides access to properties and functions related to the tick execution, such as enabling or disabling ticking.
-	virtual auto TickComponent(float      				    delta_time, 
-							   ELevelTick 				    tick_type, 
+	virtual auto TickComponent(float						delta_time, 
+							   ELevelTick					tick_type, 
 							   FActorComponentTickFunction* this_tick_function) -> void override;
 
 protected:
@@ -62,13 +62,13 @@ private:
 	/* ---------------- HEALTH PROPERTIES ---------------- */
 
 	/// @brief Amount of damage taken on each hit from projectile.
-	float damaged_{ 50.f }; 
+	float damaged_{ 50.f };
 
 	/// @brief Current health of pawn.
 	float health_{ 0.f };
 
 	/// @brief Maximum starting health of pawn.
-	float max_health_{ 100.f };	
+	float max_health_{ 100.f };
 
 	/* ----------------------- TESTING ---------------------- */
 

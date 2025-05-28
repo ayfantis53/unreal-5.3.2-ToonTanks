@@ -1,21 +1,21 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "FX/TT_Camera_shake_death.h"
 
 
 UTT_Camera_shake_death::UTT_Camera_shake_death()
 {
-	OscillationDuration     	   = 0.35f;
-	OscillationBlendInTime  	   = 0.1f;
-	OscillationBlendOutTime 	   = 0.1f;
+	OscillationDuration            = 0.35f;
+	OscillationBlendInTime         = 0.1f;
+	OscillationBlendOutTime        = 0.1f;
 
 	// LocOscillation Values.
 	LocOscillation.X.Amplitude     = 50.f;

@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "Functional/TT_functional_test_base.h"
 
@@ -20,16 +20,16 @@
 ATT_functional_test_base::ATT_functional_test_base()
 {
     // Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryActorTick.bCanEverTick = false;
+    // off to improve performance if you don't need them.
+    PrimaryActorTick.bCanEverTick = false;
 }
 
 auto ATT_functional_test_base::BeginPlay() -> void
 {
-	Super::BeginPlay();
+    Super::BeginPlay();
 
     // Initialize necessary game references.
-	tank_ref_            = Cast<ATT_Tank>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+    tank_ref_            = Cast<ATT_Tank>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
     game_mode_ref_       = Cast<ATT_Game_mode>(UGameplayStatics::GetGameMode(GetWorld()));
     controller_ref_      = Cast<ATT_Player_controller>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
     input_subsystem_ref_ = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(controller_ref_->GetLocalPlayer());
@@ -38,7 +38,7 @@ auto ATT_functional_test_base::BeginPlay() -> void
 
 auto ATT_functional_test_base::Tick(float delta_time) -> void
 {
-	Super::Tick(delta_time);
+    Super::Tick(delta_time);
 }
 
 auto ATT_functional_test_base::RunTest(const TArray<FString>& params) -> bool

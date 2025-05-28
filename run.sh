@@ -54,12 +54,6 @@ function run_tests()
     exit 1
   fi
 
-  # # make sure a test was specified
-  # if [[ -z "$2" && "$1" != "--unit-test" && "$1" != "-u" ]]; then
-  #   echo -e "|---------- ${RED}No tests specified. Please provide test arguments. ${NOCOLOR}---------|"  
-  #   exit 1
-  # fi
-
   # Delete old test Redult
   if [[ -s "${PWD}/Saved/Testing/index.json" ]]; then
     rm ${PWD}/Saved/Testing/index.json

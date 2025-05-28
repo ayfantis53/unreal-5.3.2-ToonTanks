@@ -1,12 +1,12 @@
-// *************************************************************************** //
-// ******************** Unreal Engine version 5.3.2 ************************** //
-// Toon Tanks **************************************************************** //
-// ----------  																   //
-// Developed by Andrew Yfantis. 											   //
-// https://github.com/ayfantis53 											   //
-//             																   //
-// 2025 																	   //
-// *************************************************************************** //
+// **************************************************************************** //
+// ******************** Unreal Engine version 5.3.2 *************************** //
+// Toon Tanks ***************************************************************** //
+// ----------																	//
+// Developed by Andrew Yfantis.													//
+// https://github.com/ayfantis53												//
+//																				//
+// 2025																			//
+// **************************************************************************** //
 
 #include "Unit/Pawns/Tank_test.h"
 
@@ -20,6 +20,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(spawn_tank_test, "UEUnitTests.Pawns.Tank.SpawnT
 
 auto spawn_tank_test::RunTest(const FString& Parameters) -> bool
 {
+    //// INITIALIZE ////
+    
     // Create game and create a tank pawn.
     const auto world = UWorld::CreateWorld(EWorldType::Game, false);
     auto       tank  = world->SpawnActor<ATT_Tank>(FVector(0.f), FRotator(0.f));
@@ -33,6 +35,8 @@ auto spawn_tank_test::RunTest(const FString& Parameters) -> bool
     TestFalse("Tank Turret Mesh populated", Tank_test::get_tank_turret_mesh(tank)->GetPathName().Equals(""));
     TestNotNull("Tank Movement created",    Tank_test::get_tank_movement_component(tank)                   );
 
+    //// FINISH ////
+
     // Destroy Game.
     world->CleanupWorld();
     // Finish test.
@@ -44,9 +48,13 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(camera_components_test, "UEUnitTests.Pawns.Tank
 
 auto camera_components_test::RunTest(const FString& Parameters) -> bool
 {
+    //// INITIALIZE ////
+
     // Create game and create a tank pawn.
     const auto world = UWorld::CreateWorld(EWorldType::Game, false);
     auto       tank  = world->SpawnActor<ATT_Tank>(FVector(0.f), FRotator(0.f));
+
+    //// TEST ////
 
     // Test all Camera and Spring arm components and effects were made.
     TestNotNull("Tank Camera created",           Tank_test::get_tank_camera(tank)                              );
@@ -56,6 +64,8 @@ auto camera_components_test::RunTest(const FString& Parameters) -> bool
     TestTrue("Spring arm Camera Lag",            Tank_test::get_tank_spring_arm(tank)->bEnableCameraLag        );
     TestTrue("Spring arm CameraRotationLag",     Tank_test::get_tank_spring_arm(tank)->bEnableCameraRotationLag);
     TestEqual("Spring arm CameraLagSpeed",       Tank_test::get_tank_spring_arm(tank)->CameraLagSpeed, 4.f     );
+
+    //// FINISH ////
 
     // Destroy Game.
     world->CleanupWorld();
