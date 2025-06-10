@@ -64,7 +64,7 @@ auto ATT_functional_test_widgets::verify_end_widget_collapsed() -> void
 
 auto ATT_functional_test_widgets::end_game() -> void
 {
-    // Set game to win
+    // Set game to win.
     bool game_won = true;
     game_mode_ref_->game_over(game_won);
 

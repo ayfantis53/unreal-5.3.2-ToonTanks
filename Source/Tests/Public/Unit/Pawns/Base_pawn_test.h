@@ -77,6 +77,7 @@ public:
         base_pawn->fire();
     }
 
+    /// @brief Calls toon tanks pawns destroy method.
     static auto call_handle_destruction(ATT_Base_pawn* base_pawn) -> void
     {
         base_pawn->handle_destruction();

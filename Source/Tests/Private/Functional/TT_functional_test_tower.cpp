@@ -32,10 +32,10 @@ auto ATT_functional_test_tower::BeginPlay() -> void
 
 auto ATT_functional_test_tower::verify_tower_count() -> void
 {
-    // Verify game mode is calculating the correct amount of towers
+    // Verify game mode is calculating the correct amount of towers.
     AssertEqual_Int(game_mode_ref_->get_target_tower_count(), num_turrets_[iteration_], "The number of towers in game is Correct");
 
-    // So we can get to next step and iteration in array of tower nums
+    // So we can get to next step and iteration in array of tower nums.
     iteration_++;
 
     progress_test_step();
@@ -43,7 +43,7 @@ auto ATT_functional_test_tower::verify_tower_count() -> void
 
 auto ATT_functional_test_tower::destroy_tower() -> void
 {
-    // Find a tower and destroy it
+    // Find a tower and destroy it.
     TArray<AActor*> out_actors;
     UGameplayStatics::GetAllActorsOfClass(this, ATT_Tower::StaticClass(), out_actors);
     if (!out_actors.IsEmpty())

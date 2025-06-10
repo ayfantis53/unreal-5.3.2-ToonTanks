@@ -213,6 +213,10 @@ case "$1" in
   -e|--editor)
     run_editor
     ;;
+  -m|--make)
+    compile_code
+    run_editor
+    ;;
   -u|--unit-test)
     run_tests "$@"
     ;;

@@ -32,6 +32,7 @@ auto ATT_functional_test_base::BeginPlay() -> void
     tank_ref_            = Cast<ATT_Tank>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
     game_mode_ref_       = Cast<ATT_Game_mode>(UGameplayStatics::GetGameMode(GetWorld()));
     controller_ref_      = Cast<ATT_Player_controller>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
+
     input_subsystem_ref_ = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(controller_ref_->GetLocalPlayer());
     
 }
@@ -46,7 +47,8 @@ auto ATT_functional_test_base::RunTest(const TArray<FString>& params) -> bool
 	Super::RunTest(params);
 
     StartStep("RunTest");
-    // increment to next part of test
+
+    // increment to next part of test.
     progress_test_step();
 
     return final_result_;
@@ -54,7 +56,15 @@ auto ATT_functional_test_base::RunTest(const TArray<FString>& params) -> bool
 
 auto ATT_functional_test_base::setup() -> void
 {
-    // Check for headless and set viewport size
+    // No Tank ref test needs to abort.
+    if (!tank_ref_)
+    {
+        UE_LOG(LogTemp, Error, TEXT("FUNCTIONAL TEST ERROR: NO TANK REF!"));
+        abort_test();
+        return;
+    }
+
+    // Check for headless and set viewport size.
     if (GEngine && GEngine->GameViewport)
     {
         const auto game_settings = GEngine->GetGameUserSettings();
@@ -63,12 +73,19 @@ auto ATT_functional_test_base::setup() -> void
         game_settings->ApplySettings(false);
     }
 
-    // increment to next part of test
+    // increment to next part of test.
     progress_test_step();
 }
 
 auto ATT_functional_test_base::progress_test_step() -> void
 {
+    if (test_steps_list_.Num() <= test_step_iter_)
+    {
+        UE_LOG(LogTemp, Error, TEXT("FUNCTIONAL TEST ERROR: NO REMAINING STEPS!"));
+        FinishStep();
+        return;
+    }
+
     FinishStep();
 
     FTimerDelegate timer_delegate{};
@@ -83,14 +100,14 @@ auto ATT_functional_test_base::progress_test_step() -> void
 
 auto ATT_functional_test_base::wait() -> void
 {
-    // Set timer delay to wait delay
+    // Set timer delay to wait delay.
     float timer_temp = timer_delay_;
     timer_delay_     = wait_delay_;
 
-    // increment to next part of test
+    // increment to next part of test.
     progress_test_step();
 
-    // return timer delay back to normal value
+    // return timer delay back to normal value.
     timer_delay_     = timer_temp;
 }
 

@@ -83,7 +83,7 @@ auto ATT_Tank::set_up_meshes() -> void
     if (base_mesh_path.Succeeded())
     {
         base_mesh_->SetStaticMesh(base_mesh_path.Object);
-        base_mesh_->SetRelativeLocation(FVector(0.f, 0.f, -89.f));
+        base_mesh_->SetRelativeLocation(FVector(0.f, 0.f, -92.f));
     }
 
     // Set turret mesh.
